@@ -1,0 +1,29 @@
+
+<div class="container">
+<h3 class="text-center">La liste des taches</h3>
+
+	<table class="table table-bordered">
+		<tr>
+			<th>Id</th>
+			<th>Titre</th>
+			<th>Statut</th>
+		</tr>
+		<tr ng-repeat="tache in taches">
+			<td>{{tache.id}}</td>
+			<td>{{tache.title}}</td>
+			<td>{{tache.state}}</td>
+			<td><label><input type="checkbox" name="state"
+					ng-change='onCompleteTodo(tache)' ng-model="tache.state"
+					ng-true-value="'Finie'" ng-false-value="'En cours'">
+					Marquercomme finie </input></label></td>
+		</tr>
+	</table>
+	<br>
+
+	<button ng-click="valider()" type="submit" class="btn btn-default">Valider</button>
+</div>
+
+
+
+<!-- {{tache.state === "En cours" ? "fdgdfg" : "it's false"}}
+ -->

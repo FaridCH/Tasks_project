@@ -1,0 +1,34 @@
+<div class="container">
+	<h3 class="text-center">La liste des taches</h3>
+
+	<table class="table table-condensed">
+		<tr>
+			<th>Id</th>
+			<th>Titre</th>
+			<th>Statut</th>
+		</tr>
+
+		<tr ng-repeat="tache in taches" ng-switch on="tache.state">
+			<td ng-switch-when="Finie" class="success">{{tache.id}}</td>
+			<td ng-switch-when="Finie" class="success">{{tache.title}}</td>
+			<td ng-switch-when="Finie" class="success">{{tache.state}}</td>
+			<td ng-switch-when="En cours" class="warning">{{tache.id}}</td>
+			<td ng-switch-when="En cours" class="warning">{{tache.title}}</td>
+			<td ng-switch-when="En cours" class="warning">{{tache.state}}</td>
+		</tr>
+
+
+	</table>
+	<br> <strong>Le nombre des taches terminées et non
+		terminées</strong> <br> <br>
+	<div ng-repeat="tache in filteredF = (taches | filter:tacheFinie)"></div>
+	<div ng-repeat="tache in filteredE = (taches | filter:tacheEnCours)"></div>
+	<mark>
+		<label>{{filteredF.length}}</label>
+	</mark>
+	Tache(s) terminée(s) <br> <mark><label>{{filteredE.length}}</label></mark>
+	Tache(s) non terminée(s)
+
+</div>
+
+
